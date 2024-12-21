@@ -423,6 +423,18 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-generator-maven-plugin</artifactId>
+                <version>0.5.2</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
@@ -480,6 +492,11 @@
                         <parameters>true</parameters>
                         <proc>full</proc>
                         <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.openjdk.jmh</groupId>
+                                <artifactId>jmh-generator-annprocess</artifactId>
+                                <version>${jmh.version}</version>
+                            </path>
                             <path>
                                 <groupId>org.mapstruct</groupId>
                                 <artifactId>mapstruct-processor</artifactId>
