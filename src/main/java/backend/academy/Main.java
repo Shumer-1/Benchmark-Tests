@@ -15,6 +15,15 @@ import org.openjdk.jmh.runner.options.TimeValue;
 
 @UtilityClass
 public class Main {
+
+    private static final int FORKS_COUNT = 3;
+    private static final int WARMUP_FORKS_COUNT = 1;
+    private static final int WARMUP_ITERATION_COUNT = 5;
+    private static final int WARMUP_TIME = 10;
+    private static final int MEASUREMENT_ITERATIONS_COUNT = 5;
+    private static final int MEASUREMENT_TIME_COUNT = 10;
+
+
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder()
             .include(DirectBenchmark.class.getSimpleName())
@@ -25,12 +34,12 @@ public class Main {
             .shouldDoGC(true)
             .mode(Mode.AverageTime)
             .timeUnit(TimeUnit.NANOSECONDS)
-            .forks(3)
-            .warmupForks(1)
-            .warmupIterations(5)
-            .warmupTime(TimeValue.seconds(10))
-            .measurementIterations(5)
-            .measurementTime(TimeValue.seconds(10))
+            .forks(FORKS_COUNT)
+            .warmupForks(WARMUP_FORKS_COUNT)
+            .warmupIterations(WARMUP_ITERATION_COUNT)
+            .warmupTime(TimeValue.seconds(WARMUP_TIME))
+            .measurementIterations(MEASUREMENT_ITERATIONS_COUNT)
+            .measurementTime(TimeValue.seconds(MEASUREMENT_TIME_COUNT))
             .build();
 
         new Runner(options).run();
