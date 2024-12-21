@@ -1,0 +1,10 @@
+SETTINGS:
+FORKS: 3 | WARMUP_FORKS: 1 | WARMUP_ITERATIONS: 5
+WARMUP_TIME: 10 SEC | MEASUREMENT_ITERATIONS: 5 | MEASUREMENT_TIME: 10 SEC
+RESULTS:
+Benchmark                                              Mode  Cnt  Score   Error  Units
+DirectBenchmark.directAccess                           avgt   15  0,634 ± 0,022  ns/op
+LambdaMetafactoryBenchmark.lambdaMetafactoryBenchmark  avgt   15  0,881 ± 0,007  ns/op
+MethodHandleBenchmark.methodHandleAccess               avgt   15  4,985 ± 0,031  ns/op
+ReflectionBenchmark.reflectionAccess                   avgt   15  8,630 ± 0,022  ns/op
+Total time: 00:28:30
